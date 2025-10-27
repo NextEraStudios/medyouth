@@ -1,0 +1,1589 @@
+/* ------------------------- Components ® Code by Dennis -------------------------------------------------- */
+
+/* .dnone {
+   display: none;
+} */
+
+/* ------------------------- Default Header -------------------------------------------------- */
+
+.default-header,
+.default-header.full-height .container > .row {
+   padding-top: calc(var(--nav-main-height) + var(--nav-secondary-height) + (var(--section-padding) * 0.66));
+   padding-bottom: var(--section-padding);
+}
+
+.default-header.extra-padding {
+   padding-top: calc(var(--nav-main-height) + var(--nav-secondary-height) + (var(--section-padding) * 1));
+}
+
+.default-header .container > .row {
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+
+.section-wrap.top-wave {
+   padding-top: calc(var(--nav-main-height) + var(--nav-secondary-height) + (var(--section-padding) * 0.5));
+   /* margin-top: calc(var(--nav-main-height) + var(--nav-secondary-height) + 1.25em); */
+}
+
+/* ------------------------- Wave -------------------------------------------------- */
+
+.section.wave {
+   padding: 0;
+   height: calc(var(--title-size) * 0.4);
+}
+
+.section.wave .overlay {
+   transform: translateY(-1px);
+   overflow: hidden;
+}
+
+.section.wave.flipped {
+   transform: scaleY(-1);
+}
+
+.section.wave svg {
+   top: unset;
+   bottom: 1%;
+   left: 50%;
+   position: absolute;
+   width: unset;
+   height: 160%;
+   transform: translateX(-50%);
+}
+
+.section.wave svg path {
+   fill: var(--color-dark);
+}
+
+/* Colors */
+
+.section.wave.light svg path {
+   fill: var(--color-light);
+}
+
+.section.wave.lightgray svg path {
+   fill: var(--color-lightgray);
+}
+
+.section.wave.primary svg path {
+   fill: var(--color-primary);
+}
+
+.section.wave.secondary svg path {
+   fill: var(--color-secondary);
+}
+
+.section.wave.darkgreen svg path {
+   fill: var(--color-darkgreen);
+}
+
+/* ------------------------- Line Divider -------------------------------------------------- */
+
+.section-line-divider {
+   padding: 1px 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: -1px 0;
+}
+
+.section-line-divider .line {
+   width: calc(var(--title-size) * 3);
+   height: 2px;
+   background-color: var(--color-border);
+}
+
+/* ------------------------- Icons Positive/Negative -------------------------------------------------- */
+
+i.positive {
+   width: 1em;
+   height: 1em;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--color-darkgreen);
+   flex-shrink: 0;
+}
+
+i.positive svg {
+   width: 60%;
+}
+
+i.positive svg polyline {
+   stroke-width: 3px;
+   stroke: var(--color-light);
+}
+
+i.negative {
+   width: 1em;
+   height: 1em;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--color-darkred);
+   flex-shrink: 0;
+}
+
+i.negative svg {
+   width: 55%;
+}
+
+i.negative svg line {
+   stroke-width: 3px;
+   stroke: var(--color-light);
+}
+
+/* ------------------------- Border Dotted (SVG) -------------------------------------------------- */
+
+.border-dotted {
+   position: absolute;
+   --dotted-border-color: var(--color-darkgreen);
+   --dotted-border-distance: calc(var(--title-size) * 0.1);
+   --dotted-border-radius: calc(var(--border-radius) - var(--dotted-border-distance));
+   left: var(--dotted-border-distance);
+   top: var(--dotted-border-distance);
+   width: calc(100% - (var(--dotted-border-distance) * 2));
+   height: calc(100% - (var(--dotted-border-distance) * 2));
+   border-radius: var(--dotted-border-radius);
+   pointer-events: none;
+   user-select: none;
+}
+
+.border-dotted svg {
+   width: 100%;
+   height: 100%;
+}
+
+.border-dotted svg rect {
+   x: 1px;
+   y: 1px;
+   width: calc(100% - 2px);
+   height: calc(100% - 2px);
+   rx: var(--dotted-border-radius);
+   stroke: var(--dotted-border-color);
+   transition: var(--animation-bounce);
+}
+
+/* ------------------------- Corner -------------------------------------------------- */
+
+.corner {
+   position: relative;
+   --corner-size: 1;
+   width: calc(var(--border-radius) * var(--corner-size));
+   height: calc(var(--border-radius) * var(--corner-size));
+   background-image: radial-gradient(circle at 100% 100%, transparent calc(var(--border-radius) * var(--corner-size)), var(--color-light) calc((var(--border-radius) * var(--corner-size)) + 0.5px));
+}
+
+.corner.flipped {
+   transform: scaleX(-1);
+}
+
+/* ------------------------- Flickity Slider - Setup -------------------------------------------------- */
+
+.flickity-slider-group {
+   width: 100%;
+   position: relative;
+   --gap: 2em;
+   --columns: 3;
+}
+
+.flickity-slider-group .flickity-carousel {
+   display: flex;
+}
+
+.flickity-slider-group .flickity-slide {
+   width: calc((100% / var(--columns)) - (var(--gap) * ((var(--columns) - 1) / var(--columns))));
+   margin-right: var(--gap);
+   flex-shrink: 0;
+   display: block;
+}
+
+/* Turn Flickity ON */
+.flickity-slider-group .flickity-carousel::after {
+   content: "flickity";
+   display: none;
+}
+
+/* Remove Flex from for Flickity */
+.flickity-slider-group .flickity-carousel {
+   display: block;
+}
+
+.flickity-slider-group .flickity-viewport {
+   overflow: visible;
+   width: 100%;
+}
+
+/* Flickity Controls */
+
+.flickity-slider-group .flickity-controls {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   z-index: 2;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.flickity-slider-group .flickity-controls * {
+   pointer-events: all;
+}
+
+.flickity-slider-group .flickity-controls .arrow {
+   transform: translateX(50%);
+}
+
+.flickity-slider-group .flickity-controls .arrow.flipped {
+   transform: translateX(-50%);
+}
+
+ 
+@media screen and (min-width: 1024px) {
+   /* Turn Flickity OFF if 3 collection items */
+   .flickity-slider-group:is(.count-1, .count-2, .count-3) .flickity-carousel::after {content:""; display: block;}
+   .flickity-slider-group:is(.count-1, .count-2, .count-3) .flickity-carousel {display: flex;}
+   .flickity-slider-group:is(.count-1, .count-2, .count-3) .flickity-controls {display: none;}
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+   /* Turn Flickity OFF if 2 collection items */
+   .flickity-slider-group:is(.count-1, .count-2) .flickity-carousel::after {content:""; display: block;}
+   .flickity-slider-group:is(.count-1, .count-2) .flickity-carousel {display: flex;}
+   .flickity-slider-group:is(.count-1, .count-2) .flickity-controls {display: none;}
+}
+
+@media screen and (max-width: 720px) {
+   /* Turn Flickity OFF if 1 collection items */
+   .flickity-slider-group:is(.count-1) .flickity-carousel::after {content:""; display: block;}
+   .flickity-slider-group:is(.count-1) .flickity-carousel {display: flex;}
+   .flickity-slider-group:is(.count-1) .flickity-controls {display: none;}
+}
+
+
+/* ------------------------- Flickity Slider - Custom: Cards -------------------------------------------------- */
+
+.flickity-slider-group[data-flickity-slider-type="cards"] {
+   --gap: var(--col-gap);
+   --columns: 3;
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+   .flickity-slider-group[data-flickity-slider-type="cards"] {
+      --columns: 2;
+   }
+}
+
+@media screen and (max-width: 720px) {
+   .flickity-slider-group[data-flickity-slider-type="cards"] {
+      --columns: 1;
+   }
+}
+
+/* ------------------------- Flickity Slider - Custom: Cards (4 - Col) -------------------------------------------------- */
+
+.flickity-slider-group.col-4[data-flickity-slider-type="cards"] {
+   --gap: var(--col-gap);
+   --columns: 4;
+}
+
+@media screen and (min-width: 1025px) {
+   .flickity-slider-group.col-4:is(.count-1, .count-2, .count-3, .count-4)[data-flickity-slider-type="cards"] .flickity-carousel::after {content:""; display: block;}
+   .flickity-slider-group.col-4:is(.count-1, .count-2, .count-3, .count-4)[data-flickity-slider-type="cards"] .flickity-carousel {display: flex;}
+   .flickity-slider-group.col-4:is(.count-1, .count-2, .count-3, .count-4)[data-flickity-slider-type="cards"] .flickity-controls {display: none;}
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+   .flickity-slider-group.col-4[data-flickity-slider-type="cards"] {
+      --columns: 3;
+   }
+}
+
+@media screen and (max-width: 720px) {
+   .flickity-slider-group.col-4[data-flickity-slider-type="cards"] {
+      --columns: 2;
+   }
+}
+
+
+/* ------------------------- Flickity Slider - Custom: Foodtrucks -------------------------------------------------- */
+
+.flickity-slider-group[data-flickity-slider-type="foodtrucks"] {
+   --gap: 0em;
+   --columns: 2;
+   width: 100vw;
+   min-width: 100vw;
+   max-width: 100vw;
+}
+
+.flickity-slider-group[data-flickity-slider-type="foodtrucks"] .flickity-controls {
+   padding: 0 20vw;
+}
+
+.flickity-slider-group[data-flickity-slider-type="foodtrucks"] .flickity-slide {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.flickity-slider-group .flickity-page-dots {
+   display: flex;
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+   bottom: unset;
+   gap: 0.5em;
+   position: relative;
+   padding-top: var(--row-gap);
+}
+
+.flickity-slider-group .flickity-page-dots .dot {
+   margin: unset;
+   width: 0.8em;
+   height: 0.8em;
+   background-color: transparent;
+   border: 2px solid var(--color-light);
+   transition: var(--animation-fast);
+}
+
+.flickity-slider-group .flickity-page-dots .dot:hover {
+   opacity: 0.66;
+}
+
+.flickity-slider-group .flickity-page-dots .dot.is-selected {
+   background-color: var(--color-primary);
+   border: 2px solid var(--color-primary);
+}
+
+@media screen and (max-width: 720px) {
+   .flickity-slider-group[data-flickity-slider-type="foodtrucks"] {
+      --columns: 1.75;
+   }
+
+   .flickity-slider-group .flickity-page-dots {
+      padding-top: calc(var(--row-gap) + 6vh);
+   }
+
+   .flickity-slider-group[data-flickity-slider-type="foodtrucks"] .flickity-controls {
+      padding: 0 10vw;
+      align-items: flex-end;
+      transform: translateY(0.66em);
+   }
+   
+}
+
+/* ------------------------- Flickity Slider - Custom: Steps -------------------------------------------------- */
+
+.flickity-slider-group[data-flickity-slider-type="steps"] {
+   --gap: 0em;
+   --columns: 1;
+   overflow: hidden;
+}
+
+.flickity-slider-group[data-flickity-slider-type="steps"] .flickity-controls {
+   padding: 0 var(--col-gap);
+}
+
+.flickity-slider-group[data-flickity-slider-type="steps"] .flickity-slide {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0 var(--container-padding);
+}
+
+.flickity-slider-group[data-flickity-slider-type="steps"] .flickity-page-dots {
+   padding-top: calc(var(--row-gap) * 1.75);
+}
+
+.flickity-slider-group[data-flickity-slider-type="steps"] .flickity-page-dots .dot {
+   border: 2px solid var(--color-dark);
+   opacity: 1;
+}
+
+.flickity-slider-group[data-flickity-slider-type="steps"] .flickity-page-dots .dot.is-selected {
+   background-color: var(--color-dark);
+   border: 2px solid var(--color-dark);
+}
+
+/* ------------------------- Single Vimeo Background -------------------------------------------------- */
+
+.single-vimeo-background {
+   --vimeo-aspect-ratio: 56.25%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   transform: translateZ(0);
+   isolation: isolate;
+   pointer-events: none;
+}
+
+.single-vimeo-background .vimeo-iframe-wrapper {
+   position: absolute;
+   width: 100%;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.single-vimeo-background .vimeo-iframe-wrapper::before {
+   content:"";
+   display: block;
+   padding-top: var(--vimeo-aspect-ratio);
+}
+
+.single-vimeo-background .vimeo-iframe-wrapper iframe {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
+/* Placeholder */
+
+.single-vimeo-background .vimeo-overlay-placeholder,
+.single-vimeo-background + .vimeo-overlay-placeholder  {
+   background: var(--color-dark);
+   transition: opacity 1s ease;
+   opacity: 1;
+}
+
+.single-vimeo-background[data-vimeo-status-activated="true"][data-vimeo-status-loaded="true"] .vimeo-overlay-placeholder,
+.single-vimeo-background[data-vimeo-status-activated="true"][data-vimeo-status-loaded="true"] + .vimeo-overlay-placeholder {
+   opacity: 0;
+}
+
+/* Overlay Dark */
+
+.single-vimeo-background .overlay-dark {
+   background: var(--color-black);
+   opacity: 0;
+}
+
+/* ------------------------- Single - Vimeo Lightbox -------------------------------------------------- */
+
+.vimeo-lightbox {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   pointer-events: none;
+   z-index: 700;
+   opacity: 0;
+   visibility: hidden;
+   display: flex;
+   padding: var(--section-padding) var(--container-padding);
+   transition: all var(--animation-bounce-smooth);
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="true"] {
+   visibility: visible;
+   opacity: 1;
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="remove"] {
+   visibility: hidden;
+   opacity: 0;
+}
+
+.single-vimeo-calculate {
+   position: relative;
+   display: flex;
+   justify-content: center;
+	 align-items: center;
+   width: 100%;
+   pointer-events: none;
+}
+
+.single-vimeo-calculate-wrap {
+   position: relative;
+   width: 100%;
+   pointer-events: none;
+}
+
+/* Lightbox Background */
+
+.vimeo-lightbox .vimeo-lightbox-background {
+   background: var(--color-black);
+   opacity: 0.9;
+   pointer-events: all;
+}
+
+/* Player */
+
+.vimeo-lightbox .single-vimeo-lightbox {
+   --aspect-ratio: 56.25%;
+	position: relative;
+	width: 100%;
+	padding-bottom: var(--aspect-ratio);
+	overflow: hidden;
+   background: var(--color-dark);
+   border-radius: calc(var(--border-radius) * 0.5);
+   transform: translateZ(0);
+   isolation: isolate;
+   pointer-events: none;
+	transition: transform var(--animation-bounce-smooth);
+   transform: scale(0.8) rotate(0.001deg);
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="true"] .single-vimeo-lightbox {
+   transform: scale(1) rotate(0.001deg);
+   pointer-events: all;
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="remove"] .single-vimeo-lightbox {
+   transform: scale(0.8) rotate(0.001deg);
+   pointer-events: none;
+}
+
+.vimeo-lightbox iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.vimeo-lightbox[data-vimeo-player-target] {
+   cursor: pointer;
+}
+
+.vimeo-lightbox .vimeo-append-content {
+   z-index: 0;
+}
+
+/* Placeholder */
+
+.vimeo-lightbox .vimeo-overlay-placeholder {
+	background: var(--color-dark);
+	transition: opacity 0.3s ease-in-out;
+	opacity: 1;
+}
+
+.vimeo-lightbox[data-vimeo-status-loaded="true"] .vimeo-overlay-placeholder {
+   transition: all 0.3s ease-in-out 0.5s;
+	opacity: 0;
+}
+
+/* Overlay Dark */
+
+.vimeo-lightbox .vimeo-overlay-dark {
+	background: var(--color-dark);
+	transition: opacity 0.3s ease-in-out;
+   opacity: 0;
+   z-index: 2;
+   pointer-events: none;
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="true"] .vimeo-overlay-dark {
+	opacity: 0.5;
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="true"][data-vimeo-status-loaded="true"] .vimeo-overlay-dark {
+	opacity: 0;
+}
+
+@media (hover: hover) { 
+   .vimeo-lightbox:hover .vimeo-overlay-dark {
+      opacity: 0.3 !important;
+   }
+}
+
+/* Interface */
+
+.vimeo-lightbox .vimeo-overlay-interface {
+   pointer-events: none;
+   z-index: 4;
+   opacity: 0;
+   transition: opacity 0.3s ease-in-out;
+   display: flex;
+   align-items: flex-end;
+   padding: var(--row-gap) var(--col-gap);
+   gap: var(--row-gap) var(--col-gap);
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="true"][data-vimeo-status-play="false"] .vimeo-overlay-interface,
+.vimeo-lightbox[data-vimeo-status-activated="true"][data-vimeo-status-hover="true"] .single-vimeo-lightbox:hover .vimeo-overlay-interface {
+   opacity: 1;
+}
+
+@media screen and (max-width: 1024px) { 
+   .vimeo-lightbox[data-vimeo-status-activated="true"][data-vimeo-status-play="true"] .vimeo-overlay-interface {
+      opacity: 0 !important;
+   }
+}
+
+.vimeo-lightbox .vimeo-overlay-interface * {
+   pointer-events: all;
+}
+
+.vimeo-lightbox .vimeo-mute {
+   height: 1.5em;
+   width: 1.5em;
+   position: relative;
+   cursor: pointer;
+   flex-shrink: 0;
+}
+
+.vimeo-lightbox .vimeo-mute svg {
+   width: 100%;
+   display: block;
+   transform: scale(0.9);
+}
+
+.vimeo-lightbox .vimeo-mute svg path {
+   fill: var(--color-white);
+}
+
+.vimeo-lightbox .vimeo-mute svg:nth-child(2) {
+   display: none;
+}
+
+.vimeo-lightbox[data-vimeo-status-muted="true"] .vimeo-mute svg:nth-child(1) {
+   display: none;
+}
+
+.vimeo-lightbox[data-vimeo-status-muted="true"] .vimeo-mute svg:nth-child(2) {
+   display: block;
+}
+
+.vimeo-lightbox .vimeo-duration {
+   height: 1.5em;
+   width: 2em;
+   display: flex;
+   align-items: baseline;
+   flex-shrink: 0;
+}
+
+.vimeo-lightbox .vimeo-duration span {
+   color: var(--color-white);
+   font-weight: 400;
+   white-space: nowrap;
+   font-size: 0.9em;
+}
+
+/* Timeline */
+
+.vimeo-lightbox .vimeo-timeline {
+   height: 1.5em;
+   width: 100%;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   --timeline-rounded-corners: 1.75em;
+   --progress-value: var(--color-primary);
+   --progress-background: rgba(var(--color-light-rgb), 0.2);
+   --progress-height: 3px;
+   --dot-height: 0.75em;
+   --dot-color: var(--color-white);
+}
+
+.vimeo-lightbox .vimeo-timeline > input {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   position: absolute;
+   display: block;
+   background: transparent;
+   position: relative;
+   z-index: 2;
+   width: 100%;
+   height: 100%;
+   cursor: pointer;
+}
+
+.vimeo-lightbox .vimeo-timeline > progress {
+   width: 100%;
+   position: absolute;
+   left: 0;
+   height: var(--progress-height);
+   margin: 0;
+   padding: 0;
+   vertical-align: top;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   border-radius: var(--timeline-rounded-corners);
+   overflow: hidden;
+   z-index: 0;
+   background: transparent;
+   border: none;
+   color: var(--progress-value);
+   cursor: pointer;
+}
+
+/* Progress */
+
+.vimeo-lightbox progress::-webkit-progress-bar {
+  border-radius: var(--timeline-rounded-corners);
+  background-color: var(--progress-background);
+  box-shadow: 0;
+}
+
+.vimeo-lightbox progress::-webkit-progress-value {
+  background: var(--progress-value);
+}
+
+.vimeo-lightbox progress::-moz-progress-bar {
+  border-radius: var(--timeline-rounded-corners);
+  background: var(--progress-value);
+  box-shadow: 0;
+}
+
+.vimeo-lightbox progress::-ms-fill {
+  border-radius: var(--timeline-rounded-corners);
+}
+
+/* Range */
+
+.vimeo-lightbox [type="range"]::-webkit-slider-thumb {
+   -webkit-appearance: none;
+}
+ 
+.vimeo-lightbox [type="range"]:focus {
+   outline: none;
+}
+ 
+.vimeo-lightbox [type="range"]::-ms-track {
+   width: 100%;
+   cursor: pointer;
+   background: transparent;
+   border-color: transparent;
+   color: transparent;
+}
+
+.vimeo-lightbox [type="range"].time::-webkit-slider-runnable-track{
+  width: 100%;
+  height: var(--progress-height);
+  cursor: pointer;
+  background: var(--progress-background);
+  border-radius: var(--timeline-rounded-corners)
+}
+
+.vimeo-lightbox [type="range"]::-webkit-slider-thumb {
+  box-shadow: 0;
+  height: var(--dot-height);
+  width: var(--dot-height);
+  border-radius: var(--timeline-rounded-corners);
+  background: var(--dot-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  border: var(--border);
+}
+
+.vimeo-lightbox [type="range"]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+.vimeo-lightbox [type="range"]::-moz-range-track {
+  width: 100%;
+  height: var(--progress-height);
+  cursor: pointer;
+  background: var(--progress-background);
+  border-radius: 0;
+  border: 0;
+  border-radius: var(--timeline-rounded-corners);
+  overflow: hidden;
+}
+
+.vimeo-lightbox [type="range"]::-moz-range-thumb {
+  box-shadow: 0;
+  border: 0;
+  height: var(--dot-height);
+  width: var(--dot-height);
+  border-radius: var(--timeline-rounded-corners);
+  background: var(--dot-color);
+  cursor: pointer;
+  box-shadow: 0;
+  border: var(--border);
+}
+
+/* Icon (Play + Pause) */
+
+.vimeo-lightbox .icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: calc(var(--title-size) * 1.2);
+   height: calc(var(--title-size) * 1.2);
+   transform: scale(1) rotate(0.001deg);
+   transition: opacity 0.3s ease-in-out;
+   background: var(--color-secondary);
+   border-radius: 50%;
+   border: var(--border);
+   position: relative;
+   z-index: 1;
+   box-shadow: 0px var(--shadow-distance) 0px 0px rgba(var(--color-dark-rgb),0.2);
+}
+
+.vimeo-lightbox .icon svg {
+   width: 50%;
+}
+
+/* Play */
+
+.vimeo-lightbox .vimeo-overlay-play {
+	z-index: 2;
+	display: flex;
+   align-items: center;
+	justify-content: center;
+   cursor: pointer;
+   opacity: 1;
+}
+
+.vimeo-lightbox[data-vimeo-status-play="true"] .vimeo-overlay-play {
+   opacity: 0;
+}
+
+.vimeo-lightbox .vimeo-overlay-play .icon svg path {
+   fill: var(--color-dark);
+}
+
+/* Pause */
+
+.vimeo-lightbox .vimeo-overlay-pause {
+	z-index: 3;
+	display: none;
+   align-items: center;
+	justify-content: center;
+   cursor: pointer;
+}
+
+.vimeo-lightbox[data-vimeo-status-play="true"] .vimeo-overlay-pause {
+   display: flex;
+}
+
+.vimeo-lightbox .vimeo-overlay-pause .icon {
+   opacity: 0;
+}
+
+.vimeo-lightbox .vimeo-overlay-pause .icon svg path {
+   stroke: var(--color-dark);
+}
+
+.vimeo-lightbox[data-vimeo-status-activated="true"][data-vimeo-status-play="false"] .vimeo-overlay-pause  .icon,
+.vimeo-lightbox[data-vimeo-status-activated="true"][data-vimeo-status-hover="true"] .single-vimeo-lightbox:hover .vimeo-overlay-pause  .icon {
+   opacity: 1;
+}
+
+@media screen and (max-width: 1024px) { 
+   .vimeo-lightbox[data-vimeo-status-activated="true"][data-vimeo-status-play="true"] .vimeo-overlay-pause  .icon {
+      opacity: 0 !important;
+   }
+}
+
+/*  Loading */
+
+.vimeo-lightbox .vimeo-overlay-loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+	transition: all 0.3s ease-in-out 0.5s;
+   opacity: 0;
+   pointer-events: none;
+   background-color: rgba(var(--color-black-rgb), 0.5);
+}
+
+.vimeo-lightbox[data-vimeo-status-play="true"] .vimeo-overlay-loading {
+	opacity: 1;
+}
+
+.vimeo-lightbox[data-vimeo-status-play="true"][data-vimeo-status-loaded="true"] .vimeo-overlay-loading {
+	opacity: 0;
+}
+
+.vimeo-lightbox .vimeo-overlay-loading svg {
+	width: 8em;
+}
+
+.vimeo-lightbox .vimeo-overlay-loading svg path {
+	fill: var(--color-white);
+}
+
+
+/*  Close Button */
+
+.vimeo-close-button {
+   position: absolute;
+   top: var(--row-gap);
+   right: var(--col-gap);
+   pointer-events: all;
+   z-index: 10;
+}
+
+/* ------------------------- Single - Foodtrucks Card -------------------------------------------------- */
+
+.single-foodtrucks-card {
+   position: relative;
+   --color-tile-bg: var(--color-secondary);
+   --color-tile-border: var(--color-darkgreen);
+}
+
+.single-foodtrucks-card .circle {
+   width: calc(var(--title-size) * 5.5);
+}
+
+.single-foodtrucks-card .circle svg {
+   width: 100%;
+}
+
+.single-foodtrucks-card .circle svg rect:nth-child(1) {
+   fill: var(--color-tile-bg);
+   stroke-width: 0.15em;
+   stroke: var(--color-dark);
+}
+
+.single-foodtrucks-card .circle svg rect:nth-child(2) {
+   stroke: var(--color-tile-border);
+   stroke-width: 0.15em;
+   stroke-dasharray: 0.45em 0.4575em;
+   rotate: 90deg;
+   transform-origin: center center;
+}
+
+.single-foodtrucks-card .card {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 2;
+   border-radius: 100em;
+}
+
+.single-foodtrucks-card .foodtruck-image {
+   position: absolute;
+   width: 100%;
+   pointer-events: none;
+   user-select: none;
+}
+
+.single-foodtrucks-card .foodtruck-image img {
+   width: 100%;
+   position: relative;
+}
+
+.single-foodtrucks-card .btn {
+   position: absolute;
+   bottom: 0;
+   opacity: 0;
+   transition: var(--animation-bounce);
+}
+
+/* Not Selected */
+
+.flickity-slide .single-foodtrucks-card .circle {
+   transform: scale(0.75) rotate(0.001deg);
+   transition: var(--animation-bounce);
+}
+
+.flickity-slide .single-foodtrucks-card .circle svg {
+   transform: scale(1) rotate(0.001deg);
+   transition: var(--animation-bounce);
+}
+
+.flickity-slide .single-foodtrucks-card .foodtruck-image {
+   transition: var(--animation-bounce);
+   transform: scale(0.66) rotate(0.001deg);
+}
+
+.flickity-slide .single-foodtrucks-card .foodtruck-image img {
+   transform: scale(1) rotate(0.001deg);
+   transition: var(--animation-bounce);
+}
+
+/* Selected */
+
+.flickity-slide.is-selected .single-foodtrucks-card .circle {
+   transform: scale(1) rotate(0.001deg);
+}
+
+.flickity-slide.is-selected .single-foodtrucks-card .foodtruck-image {
+   transform: scale(1) rotate(0.001deg);
+}
+
+.flickity-slide.is-selected .btn {
+   transform: translateY(-1em) rotate(0.001deg);
+   opacity: 1;
+}
+
+@media (hover: hover) { 
+
+   .single-foodtrucks-card .card-hover:hover + .circle svg {
+      transform: scale(1) rotate(-10deg);
+   }
+
+   .single-foodtrucks-card .card-hover:hover .foodtruck-image img {
+      transform: scale(1.05) rotate(-5deg);
+   }
+
+   .single-foodtrucks-card .card-hover:hover .btn-content {
+      transform: translateY(calc(var(--shadow-distance) * -1)) rotate(0.001deg);
+   }
+
+   .single-foodtrucks-card .card-hover:hover .btn-content .btn-text span {
+      transform: translateY(-115%) rotate(0.001deg);
+   }
+   
+   .single-foodtrucks-card .card-hover:hover .btn-content .btn-text span.duplicate {
+      transform: translateY(5%) rotate(0.001deg);
+   }
+
+}
+
+@media screen and (max-width: 720px) {
+
+   .flickity-slide .single-foodtrucks-card .circle {
+      transform: scale(0.6) rotate(0.001deg);
+   }
+
+   .flickity-slide .single-foodtrucks-card .foodtruck-image {
+      transform: scale(0.5) rotate(0.001deg);
+   }
+
+   .single-foodtrucks-card .circle {
+      width: 75vw;
+   }
+   
+   .flickity-slide.is-selected .btn {
+      transform: translateY(0em) rotate(0.001deg);
+   }
+}
+
+@media screen and (max-width: 540px) {
+   .flickity-slide.is-selected .btn {
+      transform: translateY(1em) rotate(0.001deg);
+   }
+
+}
+
+/* ------------------------- Single - Cases Card -------------------------------------------------- */
+
+.single-cases-card {
+   position: relative;
+   overflow: hidden;
+   height: 100%;
+}
+
+.single-cases-card .card-link {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   overflow: hidden;
+   border-radius: var(--border-radius);
+   border: var(--border);
+}
+
+.single-cases-card .card-image {
+   position: relative;
+   width: 100%;
+   background-color: var(--color-dark);
+   padding-bottom: 50%;
+   overflow: hidden;
+}
+
+.single-cases-card .card-image::before {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   height: 2px;
+   background-color: var(--color-dark);
+   width: 100%;
+   left: 0;
+   z-index: 2;
+}
+
+.single-cases-card .card-image picture {
+   transform: scale(1.05) rotate(0.001deg);
+   transition: transform var(--animation-bounce);
+}
+
+.single-cases-card .card-content {
+   background-color: var(--color-white);
+   padding: calc(var(--row-gap) * 1.2) var(--col-gap) calc(var(--row-gap) * 1) var(--col-gap);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 0.75em;
+   height: 100%;
+}
+
+.single-cases-card .card-content h3 {
+   text-align: center;
+}
+
+.single-cases-card .card-content p {
+   font-size: 0.9em;
+   text-align: center;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   line-clamp: 2;
+   min-height: calc(2em * 0.9 * 1.5);
+}
+
+.single-cases-card .card-content .arrow {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+   width: 1.4em;
+   height: 1.4em;
+}
+
+.single-cases-card .card-content .arrow i {
+   position: relative;
+   display: flex;
+   height: 80%;
+   width: 80%;
+   transform: translateX(0%) rotate(0.001deg);
+   transition: transform var(--animation-bounce);
+}
+
+.single-cases-card .card-content .arrow i svg {
+   width: 100%;
+}
+
+.single-cases-card .card-content .arrow i :is(path, line, polyline) {
+   stroke: var(--color-dark);
+   stroke-width: 2.5px;
+}
+
+.single-cases-card .card-content .arrow i.duplicate {
+   position: absolute;
+   transform: translateX(-120%) rotate(0.001deg);
+}
+
+/* Hover */
+
+@media (hover: hover) { 
+
+   .single-cases-card .card-hover:hover .card-image picture {
+      transform: scale(1.15) rotate(-2deg);
+   }
+
+   .single-cases-card .card-hover:hover .arrow i {
+      transform: translateX(120%) rotate(0.001deg);
+   }
+   
+   .single-cases-card .card-hover:hover .arrow i.duplicate {
+      transform: translateX(0%) rotate(0.001deg);
+   }
+}
+
+@media screen and (max-width: 540px) {
+   .single-cases-card .card-link {
+      border-radius: calc(var(--border-radius) * 0.5);
+   }
+}
+
+/* ------------------------- Single - Team Card -------------------------------------------------- */
+
+.single-team-card {
+   position: relative;
+   overflow: hidden;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1em;
+}
+
+.single-team-card .card-image {
+   width: 100%;
+   position: relative;
+   overflow: hidden;
+   border-radius: var(--border-radius);
+}
+
+.single-team-card .card-image::before {
+   content:"";
+   padding-top: 125%;
+   display: block;
+}
+
+@media screen and (max-width: 720px) {
+   .single-team-card h3 {
+      font-size: 1.33em;
+      font-weight: 600;
+   }
+}
+
+@media screen and (max-width: 540px) {
+   .single-team-card .card-image {
+      border-radius: calc(var(--border-radius) * 0.5);
+   }
+}
+
+/* ------------------------- Marquee -------------------------------------------------- */
+
+.marquee-group {
+   position: relative;
+}
+
+.marquee {
+   position: relative;
+}
+
+.marquee .marquee-scroll {
+   position: relative;
+   display: flex;
+   width: 140%;
+   margin-left: -20%;
+}
+
+.marquee .marquee-content {
+   position: relative;
+   display: flex;
+}
+
+.marquee .marquee-item {
+   width: calc(var(--title-size) * 1.5);
+}
+
+/* ------------------------- Text Badge -------------------------------------------------- */
+
+.text-badge {
+   background-color: var(--color-secondary);
+   height: 3.6em;
+   width: 3.6em;
+   border-radius: 50%;
+   flex-grow: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.text-badge h5 {
+   transform: translateY(5%);
+}
+
+/* Colors */
+
+.text-badge.primary {
+   background-color: var(--color-primary);
+}
+
+.text-badge.darkgreen {
+   background-color: var(--color-darkgreen);
+}
+
+.text-badge.darkgreen h5 {
+   color: var(--color-white);
+}
+
+
+
+/* ------------------------- Builder Blocks -------------------------------------------------- */
+
+.section-builder-blocks {
+   padding-bottom: var(--section-padding);
+}
+
+.section-builder-blocks + .section-menu {
+   padding-top: 0;
+}
+
+/* ------------------------- Default Block -------------------------------------------------- */
+
+.default-block {
+   padding-bottom: 0;
+}
+
+.default-block[data-custom-bg] .container {
+   position: relative;
+}
+
+.default-block[data-custom-bg="boxed"] {
+   padding-bottom: calc(var(--section-padding) * 0.75);
+   margin-top: calc(var(--section-padding) * 0.75);
+}
+
+.default-block[data-custom-bg="boxed"] .background-block {
+   position: absolute;
+   top: calc(var(--section-padding) * -0.75);
+   left: var(--container-padding-small);
+   width: calc(100% - (var(--container-padding-small) * 2));
+   height: calc(100% + (var(--section-padding) * 1.5));
+   pointer-events: none;
+   border-radius: var(--border-radius);
+}
+
+.default-block[data-custom-bg="full-width"] {
+   padding-bottom: calc(var(--section-padding) * 1);
+   margin-top: calc(var(--section-padding) * 1);
+}
+
+.default-block[data-custom-bg="full-width"] .background-block {
+   position: absolute;
+   top: calc(var(--section-padding) * -1);
+   left: 50%;
+   transform: translateX(-50%);
+   width: 100vw;
+   height: calc(100% + (var(--section-padding) * 2));
+   pointer-events: none;
+   border-radius: var(--border-radius);
+}
+
+@media screen and (max-width: 540px) {
+
+   .default-block[data-custom-bg="boxed"] {
+      padding-bottom: calc(var(--container-padding) * 1);
+      margin-top: calc(var(--container-padding) * 1);
+   }
+
+   .default-block[data-custom-bg="boxed"] .row {
+      padding: 0 calc(var(--container-padding) * 1);
+   }
+
+   .default-block[data-custom-bg="boxed"] .background-block {
+      position: absolute;
+      top: calc(var(--container-padding) * -1);
+      left: calc(var(--container-padding) * 1);   
+      height: calc(100% + (var(--container-padding) * 2));
+      width: calc(100% - (var(--container-padding) * 2));
+   }
+}
+
+/* ------------------------- Block - Text Center -------------------------------------------------- */
+
+.block-textcenter .align-center {
+   text-align: center;
+}
+
+.block-textcenter + .block-media {
+   padding-top: calc(var(--section-padding) * 0.9);
+}
+
+/* ------------------------- Block - Media -------------------------------------------------- */
+
+.block-media .row {
+   --gap: var(--col-gap);
+   --columns: 1;
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--row-gap) var(--gap);
+}
+
+.block-media .row .col {
+   width: calc((100% / var(--columns)) - (var(--gap) * ((var(--columns) - 1) / var(--columns))));
+}
+
+.block-media .styled-video {
+   background-color: var(--color-dark);
+}
+
+/* Count */
+
+.block-media .row.count-2 {
+   --columns: 2;   
+} 
+
+.block-media .row.count-3 {
+   --columns: 3;   
+} 
+
+.block-media .row.count-4 {
+   --columns: 4;   
+} 
+
+/* @media screen and (max-width: 1024px) {
+   .block-media .row.count-3,
+   .block-media .row.count-4 {
+      --columns: 2;   
+   } 
+} */
+
+/* ------------------------- Block - Text Split -------------------------------------------------- */
+
+.block-textsplit .row.split {
+   --gap: calc(var(--col-gap) * 4);
+   gap: calc(var(--row-gap) * 1.3) var(--gap);
+}
+
+.block-textsplit .row {
+   align-items: center;
+}
+
+@media screen and (min-width: 1023px) {
+
+   .block-textsplit:nth-child(even) .row.split .col-image {
+      order: 3;
+   }
+
+}
+
+/* ------------------------- Block - Quotes -------------------------------------------------- */
+
+.block-quotes .background-block {
+   background-color: var(--color-dark);
+}
+
+.block-quotes h2.small {
+   font-size: 2em;
+   text-align: center;
+   font-weight: 600;
+}
+
+.block-quotes h3 {
+   text-align: center;
+   color: var(--color-secondary);
+   padding-top: 0.25em;
+   font-size: 1.5em;
+}
+
+.block-quotes .row {
+   flex-wrap: wrap;
+   flex-direction: row;
+   gap: calc(var(--row-gap) * 1) var(--gap);
+   --gap: calc(var(--col-gap) * 1);
+   --columns: 3;
+   align-items: center;
+   justify-content: center;
+}
+
+.block-quotes .row.count-2 {
+   --columns: 2;
+}
+
+.block-quotes .row .col {
+   width: calc((99.99% / var(--columns)) - (var(--gap) * ((var(--columns) - 1) / var(--columns))));
+   align-items: center;
+}
+
+.block-quotes .col-row-text {
+   padding-top: 1em;
+}
+
+.block-quotes .col-row-stars {
+   position: relative;
+   margin-top: 1em;
+}
+
+.block-quotes .col-row-stars svg {
+   width: 5em;
+}
+
+.block-quotes .col-row-stars .svg-stars-box {
+   position: relative;
+   display: flex;
+}
+
+.block-quotes .col-row-stars .svg-stars-box svg path {
+   fill: var(--color-primary);
+}
+
+.block-quotes .col-row-stars .svg-stars-box + svg {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+.block-quotes .col-row-stars .svg-stars-box + svg path {
+   stroke: var(--color-primary);
+   stroke-width: 1;
+   fill: transparent;
+}
+
+
+@media screen and (max-width: 1024px) {
+   .block-quotes .row {
+      --columns: 2;
+   }
+}
+
+@media screen and (max-width: 540px) {
+   .block-quotes .row {
+      --columns: 1 !important;
+   }
+
+   .block-quotes .row .col:first-child {
+      padding-top: calc(var(--row-gap) * 2);
+   }
+
+   .block-quotes .row .col:last-child {
+      padding-bottom: calc(var(--row-gap) * 2);
+   }
+}
+
+/* ------------------------- Custom Cursor -------------------------------------------------- */
+
+.custom-cursor {
+   position: fixed;
+   z-index: 100;
+   pointer-events: none;
+   transform: translate(-50%, -50%) rotate(0.001deg);
+   display: none;
+   opacity: 0;
+   visibility: hidden;
+   display: flex;
+   pointer-events: none;
+}
+
+/*  Cursor GIF  */
+
+.custom-cursor .cursor-gif {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-45%, -50%) scale(0) rotate(0.001deg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: calc(var(--title-size) * 2);
+   transition: transform var(--animation-primary);
+   font-size: 1em;
+}
+
+.custom-cursor[data-cursor-gif="active"] .cursor-gif {
+   transform: translate(25%, -100%) scale(1) rotate(10deg);
+   transition: transform var(--animation-bounce);
+}
+
+.custom-cursor .cursor-gif .single-gif {
+   display: none;
+   border: var(--border);
+   border-radius: calc(var(--border-radius) * 0.5);
+   overflow: hidden;
+   box-shadow: 0px var(--shadow-distance) 0px 0px rgba(var(--color-dark-rgb),0.2);
+}
+
+.custom-cursor .cursor-gif .single-gif.active {
+   display: block;
+}
+
+.custom-cursor .cursor-gif .cursor-before {
+   position: relative;
+   width: 100%;
+   padding-top: 125%;
+}
+
+/* Remove on Tablet/Mobile */
+
+@media screen {
+   @media (min-width: 1024px) {
+      @media (hover: hover) {
+         .has-scroll-smooth .custom-cursor[data-cursor-init="true"] {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+         }
+      }
+   }
+}
