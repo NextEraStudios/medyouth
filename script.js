@@ -140,7 +140,7 @@ function initLoader() {
   
   tl.to($('.welcome-sun__transform .chat-cloud__p'), {
     duration: 0.5,
-    text: "MedYouth Here!...",
+    text: "MedYouth is here...",
     ease: "none",
   });
   

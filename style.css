@@ -2087,7 +2087,7 @@ textarea.w-input, textarea.w-select {
 }
 
 :root {
-  --color-light: #f3ecd2;
+  --color-light: #F7CAC9;
   --color-dark: #121212;
   --size-font: var(--unit-width);
   --size-container: var(--size-container-ideal);
@@ -2098,9 +2098,9 @@ textarea.w-input, textarea.w-select {
   --color-light-plus: #fffefb;
   --gap\<deleted\|variable-768ca409-7fea-535a-519e-4d7987da364a\>: 0em;
   --color-white: white;
-  --color-mango: #f3a20f;
+  --color-mango: #de3902;
   --sunny-height: 4em;
-  --color-orange: #f97028;
+  --color-orange: #cc4b47;
   --nav-height: 4.625em;
   --color-yellow: #f0bb0d;
   --color-black: black;
@@ -2395,7 +2395,7 @@ strong {
 
 .welcome__h2-box {
   border: .125em solid var(--color-dark);
-  background-color: var(--color-mango);
+  background-color:var(--color-mango);
   border-radius: .375em;
   transform: rotate(-3.5deg);
   box-shadow: 0 .5em 0 0 #00000026;
@@ -2725,7 +2725,7 @@ strong {
   z-index: 2;
   border-top: .125em solid var(--color-dark);
   border-bottom: .125em solid var(--color-dark);
-  background-color: var(--color-mango);
+  background-color:var(--color-mango);
   color: var(--color-light-plus);
   height: 6em;
   position: relative;
@@ -2826,7 +2826,7 @@ strong {
   border-bottom-color: var(--color-dark);
   border-left-style: solid;
   border-left-color: var(--color-dark);
-  background-color: var(--color-mango);
+  background-color:var(--color-mango);
   color: var(--color-white);
   border-width: .0328125em;
   border-radius: .0625em;
@@ -3313,7 +3313,7 @@ strong {
 }
 
 .expect-item.is--mango {
-  background-color: var(--color-mango);
+  background-color:var(--color-mango);
 }
 
 .community__rounded-border {
@@ -3361,7 +3361,7 @@ strong {
 }
 
 .expect-item__bg.is--mango {
-  background-color: var(--color-mango);
+  background-color:var(--color-mango);
 }
 
 .expect-item__bg.is--yellow {
@@ -3699,7 +3699,7 @@ strong {
   grid-column-gap: 1em;
   grid-row-gap: 1em;
   border: .125em solid var(--color-dark);
-  background-color: var(--color-mango);
+  background-color:#cc4b47;
   cursor: pointer;
   border-radius: .5em;
   justify-content: space-between;
@@ -3732,7 +3732,7 @@ strong {
 }
 
 .accordion-css__item-p {
-  color: var(--color-dark);
+  color: #cc4b47;
   margin-bottom: 1em;
   font-size: .875em;
   font-weight: 500;
