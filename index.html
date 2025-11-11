@@ -841,6 +841,27 @@
 					</section>
 						
 
+					<style>
+						/* Add this CSS to your stylesheet */
+						.community-card {
+							/* Ensure the container is ready for a positioned image */
+							position: relative;
+							overflow: hidden; /* This will crop the parts of the image that go outside the rounded corners */
+							height: 100%; /* Make sure the card takes up the full height of its grid cell */
+							width: 100%;
+						}
+
+						.community-card img {
+							/* Make the image fill the container */
+							width: 100%;
+							height: 100%;
+							/* This is the key property: it scales the image to cover the container, cropping as needed */
+							object-fit: cover; 
+							/* Centers the image within the frame */
+							object-position: center;
+						}
+					</style>
+
 					<section class="community">
 						<div class="community__rounded-border"></div>
 						<div class="community__wrap">
@@ -851,10 +872,10 @@
 											<span>Youth, </span>
 											<span class="h2__boxed is--community">For The Youth</span>
 										</h2>
-										<p class="community__p">This is a 
-											<strong>non-profit</strong> medicine club run by 
-											<strong>volunteer</strong> students. At MedYouth our motivation is to lead with kindness, inclusivity, support and 
-											<strong>FUN</strong>, obvs. 
+										<p class="community__p">This is a
+											<strong>non-profit</strong> medicine club run by
+											<strong>volunteer</strong> students. At MedYouth our motivation is to lead with kindness, inclusivity, support and
+											<strong>FUN</strong>, obvs.
 										</p>
 										<div class="btn__wrap">
 											<a data-hover-sun-happy="" href="#footer" target="_blank" class="btn is--big-mobile w-inline-block">
@@ -880,42 +901,38 @@
 										<div class="community__grid-col">
 											<div class="community-card">
 												<div class="community-card__before"></div>
-												<img src="img/image5.jpeg" loading="lazy" width="256.5" alt=""  />
-												
+												<!-- Removed the inline width attribute -->
+												<img src="img/image5.jpeg" loading="lazy" alt="" />
 											</div>
 										</div>
 										<div class="community__grid-col">
 											<div class="community-card">
 												<div class="community-card__before"></div>
-												<img src="img/image16.jpeg" loading="lazy" width="256.5" alt=""  />
-												
+												<img src="img/image16.jpeg" loading="lazy" alt="" />
 											</div>
 										</div>
 										<div class="community__grid-col">
 											<div class="community-card">
 												<div class="community-card__before"></div>
-												<img src="img/image11.jpeg" loading="lazy" width="256.5" alt=""  />
-												
+												<img src="img/image11.jpeg" loading="lazy" alt="" />
 											</div>
 										</div>
 										<div class="community__grid-col">
 											<div class="community-card">
 												<div class="community-card__before"></div>
-												<img src="img/image31.jpeg" loading="lazy" width="256.5" alt=""  />
-												
+												<img src="img/image31.jpeg" loading="lazy" alt="" />
 											</div>
 										</div>
 										<div class="community__grid-col">
 											<div class="community-card">
 												<div class="community-card__before"></div>
-												<img src="img/image10.jpeg" loading="lazy" width="256.5" alt=""  />												
+												<img src="img/image10.jpeg" loading="lazy" alt="" />
 											</div>
 										</div>
 										<div class="community__grid-col">
 											<div class="community-card">
 												<div class="community-card__before"></div>
-												<img src="img/image30.jpeg" loading="lazy" width="256.5" alt=""  />
-												
+												<img src="img/image30.jpeg" loading="lazy" alt="" />
 											</div>
 										</div>
 									</div>
